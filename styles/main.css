@@ -23,6 +23,140 @@
   --ease-in-out: cubic-bezier(0.65, 0.02, 0.28, 1);
 }
 
+/* ─────────────── decorative backdrop ─────────────── */
+/* Fixed, full-viewport paper-like layer that sits behind everything.
+   Kept strictly monochrome — opacity is held low so copy stays readable. */
+.site-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  contain: strict;
+}
+
+/* faint dotted grid */
+.site-bg__grid {
+  position: absolute;
+  inset: -2px;
+  background-image: radial-gradient(rgba(16, 16, 16, 0.09) 0.7px, transparent 0.8px);
+  background-size: 26px 26px;
+  background-position: 0 0;
+  opacity: 0.55;
+  mask-image: radial-gradient(120% 90% at 50% 40%, #000 55%, transparent 100%);
+  -webkit-mask-image: radial-gradient(120% 90% at 50% 40%, #000 55%, transparent 100%);
+}
+
+/* slow-drifting blur blobs */
+.site-bg__blob {
+  position: absolute;
+  width: 64vmin;
+  height: 64vmin;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.42;
+  mix-blend-mode: multiply;
+  will-change: transform;
+}
+.site-bg__blob--a {
+  left: -18vmin;
+  top: -14vmin;
+  background: radial-gradient(closest-side, rgba(16, 16, 16, 0.22), rgba(16, 16, 16, 0) 70%);
+  animation: bg-drift-a 36s ease-in-out infinite alternate;
+}
+.site-bg__blob--b {
+  right: -22vmin;
+  top: 42vh;
+  width: 78vmin;
+  height: 78vmin;
+  background: radial-gradient(closest-side, rgba(16, 16, 16, 0.18), rgba(16, 16, 16, 0) 70%);
+  animation: bg-drift-b 48s ease-in-out infinite alternate;
+}
+@keyframes bg-drift-a {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(6vw, 4vh, 0) scale(1.08); }
+  100% { transform: translate3d(-4vw, 8vh, 0) scale(0.96); }
+}
+@keyframes bg-drift-b {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(-5vw, -6vh, 0) scale(1.04); }
+  100% { transform: translate3d(4vw, 4vh, 0) scale(1.1); }
+}
+
+/* paper grain */
+.site-bg__noise {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.18;
+  mix-blend-mode: multiply;
+}
+
+/* vertical rules with watermark text (desktop only) */
+.site-bg__rule {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent 0%, var(--line) 14%, var(--line) 86%, transparent 100%);
+  display: none;
+}
+.site-bg__rule--l { left: 34px; }
+.site-bg__rule--r { right: 34px; }
+.site-bg__vert {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  writing-mode: vertical-rl;
+  font-family: var(--font-latin);
+  font-style: italic;
+  font-size: 10px;
+  letter-spacing: 0.42em;
+  color: var(--fg-muted);
+  white-space: nowrap;
+  text-transform: lowercase;
+  opacity: 0.8;
+}
+.site-bg__rule--r .site-bg__vert {
+  font-family: var(--font-display);
+  font-style: normal;
+  letter-spacing: 0.3em;
+}
+
+/* oversized editorial watermark */
+.site-bg__mark {
+  position: absolute;
+  right: -4vw;
+  bottom: 6vh;
+  font-family: var(--font-latin);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(18rem, 36vw, 32rem);
+  line-height: 0.8;
+  color: var(--ink);
+  opacity: 0.028;
+  letter-spacing: -0.04em;
+  user-select: none;
+  pointer-events: none;
+  transform: translateY(0);
+  animation: bg-mark-float 24s ease-in-out infinite alternate;
+}
+@keyframes bg-mark-float {
+  to { transform: translateY(-18px); }
+}
+
+@media (min-width: 1100px) {
+  .site-bg__rule { display: block; }
+}
+
+/* reduced motion: hold blobs and mark still, keep layers visible */
+@media (prefers-reduced-motion: reduce) {
+  .site-bg__blob,
+  .site-bg__mark { animation: none !important; }
+}
+
 /* ─────────────── reset ─────────────── */
 *, *::before, *::after { box-sizing: border-box; }
 
@@ -30,11 +164,12 @@ html {
   scroll-behavior: smooth;
   text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  background: var(--bg);
 }
 
 body {
   margin: 0;
-  background: var(--bg);
+  background: transparent;
   color: var(--fg);
   font-family: var(--font-body);
   font-weight: 400;
