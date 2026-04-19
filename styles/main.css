@@ -371,7 +371,7 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
   to   { transform: translate3d(-50%, 0, 0); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; }
+  .marquee-track { animation-duration: 120s; }
 }
 
 /* ─────────────── section scaffolding ─────────────── */
@@ -770,7 +770,9 @@ section.works {
 
 /* ─────────────── motion preference ─────────────── */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *:not(.marquee-track):not(.avatar-ring):not(.avatar img),
+  *:not(.marquee-track):not(.avatar-ring):not(.avatar img)::before,
+  *:not(.marquee-track):not(.avatar-ring):not(.avatar img)::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -779,6 +781,7 @@ section.works {
   .hero-title .c, .hero-lead, .hero-meta, .avatar, .eyebrow, .reveal { opacity: 1; transform: none; }
   .hero-title::after { width: min(84px, 22%); }
   .section-head::after { width: 100%; }
+  .marquee-track { animation-duration: 120s !important; animation-iteration-count: infinite !important; }
 }
 
 /* ─────────────── tiny phones ─────────────── */
