@@ -1,0 +1,12 @@
+.DS_Store
+Thumbs.db
+*.log
+
+node_modules/
+.cache/
+
+.claude/
+.vscode/
+.idea/
+
+画像/IMG_5708.jpg.url
