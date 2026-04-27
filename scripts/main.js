@@ -28,9 +28,11 @@
       if (y > 12) header.classList.add("is-scrolled");
       else header.classList.remove("is-scrolled");
 
-      const goingDown = y > lastY;
-      if (y > 160 && goingDown) header.classList.add("is-hidden");
-      else header.classList.remove("is-hidden");
+      // Hide only after a meaningful scroll-down gesture so the header
+      // doesn't flash away on small touch deltas / momentum-scroll jitter.
+      const dy = y - lastY;
+      if (y > 240 && dy > 6) header.classList.add("is-hidden");
+      else if (dy < -2 || y <= 240) header.classList.remove("is-hidden");
     }
 
     if (progressBar) progressBar.style.width = (ratio * 100).toFixed(2) + "%";

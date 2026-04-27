@@ -166,13 +166,13 @@
 
 html {
   scroll-behavior: smooth;
+  /* Single source of truth for anchor offset under the fixed header.
+     ~72px works for both desktop (~60px header) and mobile (~52px). */
+  scroll-padding-top: 72px;
   text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   background: var(--bg);
 }
-
-/* leave room under the fixed header when jumping to anchors */
-section[id], main[id] { scroll-margin-top: 88px; }
 
 body {
   margin: 0;
@@ -304,10 +304,18 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
 
 /* ─────────────── hero ─────────────── */
 .hero {
+  /* Fallback chain: vh → svh → dvh.
+     dvh tracks the URL bar so hero stays as tall as the actual viewport
+     on iOS, which keeps the bottom scroll cue visually at the bottom. */
+  min-height: 100vh;
   min-height: 100svh;
+  min-height: 100dvh;
   display: grid;
   place-items: center;
-  padding: clamp(110px, 16vh, 160px) var(--gutter) clamp(60px, 10vh, 100px);
+  padding:
+    clamp(110px, 16vh, 160px)
+    var(--gutter)
+    max(clamp(60px, 10vh, 100px), calc(env(safe-area-inset-bottom) + 28px));
   position: relative;
 }
 .hero::before {
@@ -515,7 +523,7 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
 .hero-scroll {
   position: absolute;
   left: 50%;
-  bottom: clamp(14px, 4vh, 36px);
+  bottom: max(clamp(14px, 4vh, 36px), calc(env(safe-area-inset-bottom) + 14px));
   transform: translateX(-50%);
   display: inline-flex;
   flex-direction: column;
@@ -555,7 +563,7 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
   60%  { top: 100%; }
   100% { top: 100%; }
 }
-@media (max-width: 380px) {
+@media (max-width: 340px) {
   .hero-scroll { display: none; }
 }
 
