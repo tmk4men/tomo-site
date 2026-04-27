@@ -2,7 +2,6 @@
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const docEl = document.documentElement;
 
   // ── header: scroll state + auto hide on scroll-down ─────────────
@@ -28,7 +27,7 @@
 
     if (progressBar) progressBar.style.width = (ratio * 100).toFixed(2) + "%";
 
-    if (bgMark && !reduceMotion) {
+    if (bgMark) {
       const offset = -Math.round(y * 0.06);
       bgMark.style.setProperty("--mark-parallax", offset + "px");
     }
@@ -86,7 +85,7 @@
 
   // ── footer horizon: re-draw each time it enters viewport ────────
   const footerHorizon = document.querySelector(".footer-horizon path");
-  if (footerHorizon && "IntersectionObserver" in window && !reduceMotion) {
+  if (footerHorizon && "IntersectionObserver" in window) {
     const horIO = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {

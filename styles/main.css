@@ -1341,31 +1341,6 @@ section.works {
 }
 .doc-back:hover { color: var(--ink); }
 
-/* ─────────────── motion preference ─────────────── */
-@media (prefers-reduced-motion: reduce) {
-  *:not(.marquee-track):not(.avatar-ring):not(.avatar img):not(.about-truck):not(.truck-wheel):not(.footer-horizon path),
-  *:not(.marquee-track):not(.avatar-ring):not(.avatar img):not(.about-truck):not(.truck-wheel):not(.footer-horizon path)::before,
-  *:not(.marquee-track):not(.avatar-ring):not(.avatar img):not(.about-truck):not(.truck-wheel):not(.footer-horizon path)::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  .hero-title .c, .hero-lead, .hero-meta, .avatar, .eyebrow, .reveal,
-  .hero-scroll, .section-num, .section-title, .section-sub,
-  .about-grid > div, .crew-photo, .crew-role, .crew-text,
-  .crew-name-jp .c { opacity: 1; transform: none; }
-  .crew-name-en::before { width: 22px; margin-right: 10px; }
-  .work-name { background-size: 38% 1px; }
-  .hero-title::after { width: min(84px, 22%); }
-  .section-head::after { width: 100%; }
-  .crew-photo-ring--dashed { animation: none !important; }
-  .work-item:hover .arrow { animation: none !important; transform: translate(2px, -2px); }
-  .marquee-track { animation-duration: 120s !important; animation-iteration-count: infinite !important; }
-  .about-truck { animation-duration: 50s !important; animation-iteration-count: infinite !important; }
-  .truck-wheel { animation-duration: 2.2s !important; animation-iteration-count: infinite !important; }
-}
-
 /* ─────────────── tiny phones ─────────────── */
 @media (max-width: 380px) {
   .site-nav { gap: 12px; font-size: 11px; }
