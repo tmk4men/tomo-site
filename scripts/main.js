@@ -2,6 +2,14 @@
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  // Safety net: ensure the typewriter characters end up visible no matter
+  // what (browser bugs, CSS edge cases, an extension forcing reduce-motion,
+  // etc.). Last char's animation finishes at ~2.13s; we firm it up at 3s.
+  const heroTitle = document.querySelector(".hero-title");
+  if (heroTitle) {
+    setTimeout(() => heroTitle.classList.add("has-typed"), 3000);
+  }
+
   const docEl = document.documentElement;
 
   // ── header: scroll state + auto hide on scroll-down ─────────────

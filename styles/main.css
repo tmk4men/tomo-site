@@ -409,25 +409,33 @@ ul, ol, dl { margin: 0; padding: 0; list-style: none; }
   padding-bottom: 22px;
 }
 .hero-title .l { display: block; }
-.hero-title .l2 { position: relative; }
 
 .hero-title .c {
   display: inline-block;
   opacity: 0;
-  animation: type-char 0.001s steps(1, end) forwards;
+  transform: translateY(4px);
+  animation: type-char 0.18s ease-out both;
 }
-.hero-title .l1 .c:nth-child(1) { animation-delay: 0.45s; }
-.hero-title .l1 .c:nth-child(2) { animation-delay: 0.60s; }
-.hero-title .l1 .c:nth-child(3) { animation-delay: 0.75s; }
-.hero-title .l1 .c:nth-child(4) { animation-delay: 0.90s; }
-.hero-title .l2 .c:nth-child(1) { animation-delay: 1.20s; }
-.hero-title .l2 .c:nth-child(2) { animation-delay: 1.35s; }
-.hero-title .l2 .c:nth-child(3) { animation-delay: 1.50s; }
-.hero-title .l2 .c:nth-child(4) { animation-delay: 1.65s; }
-.hero-title .l2 .c:nth-child(5) { animation-delay: 1.80s; }
-.hero-title .l2 .c:nth-child(6) { animation-delay: 1.95s; }
+.hero-title .l1 .c:nth-of-type(1) { animation-delay: 0.45s; }
+.hero-title .l1 .c:nth-of-type(2) { animation-delay: 0.60s; }
+.hero-title .l1 .c:nth-of-type(3) { animation-delay: 0.75s; }
+.hero-title .l1 .c:nth-of-type(4) { animation-delay: 0.90s; }
+.hero-title .l2 .c:nth-of-type(1) { animation-delay: 1.20s; }
+.hero-title .l2 .c:nth-of-type(2) { animation-delay: 1.35s; }
+.hero-title .l2 .c:nth-of-type(3) { animation-delay: 1.50s; }
+.hero-title .l2 .c:nth-of-type(4) { animation-delay: 1.65s; }
+.hero-title .l2 .c:nth-of-type(5) { animation-delay: 1.80s; }
+.hero-title .l2 .c:nth-of-type(6) { animation-delay: 1.95s; }
 @keyframes type-char {
-  to { opacity: 1; }
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Final-state safety: if the keyframe somehow doesn't paint, the
+   .has-typed class (set by JS after typing finishes) forces visibility. */
+.hero-title.has-typed .c {
+  opacity: 1;
+  transform: none;
 }
 
 /* blinking caret at the end of the title, after the last char appears */
