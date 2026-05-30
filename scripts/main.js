@@ -2,14 +2,6 @@
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Safety net: ensure the typewriter characters end up visible no matter
-  // what (browser bugs, CSS edge cases, an extension forcing reduce-motion,
-  // etc.). Last char's animation finishes at ~2.13s; we firm it up at 3s.
-  const heroTitle = document.querySelector(".hero-title");
-  if (heroTitle) {
-    setTimeout(() => heroTitle.classList.add("has-typed"), 3000);
-  }
-
   const docEl = document.documentElement;
 
   // ── header: scroll state + auto hide on scroll-down ─────────────
@@ -57,18 +49,17 @@
   window.addEventListener("resize", onScroll, { passive: true });
 
   // ── reveal-on-scroll ────────────────────────────────────────────
-  // Elements whose children own the staggered reveal (section-head,
-  // about-grid, crew-card) are observed for `.is-visible` only — they
-  // don't get the parent-level fade-in `.reveal` to avoid compound
-  // opacity/transform with their children.
+  // The work cards own their own reveal (`.work-card.is-visible`), so they
+  // are observed for `.is-visible` only — no parent-level `.reveal` fade to
+  // avoid compounding opacity/transform with their children.
   const revealEls = document.querySelectorAll(
-    ".about, .crew, .works, .work-item, .works-note"
+    ".works-intro, .works-note"
   );
   revealEls.forEach((el) => el.classList.add("reveal"));
 
   const observeEls = [
     ...revealEls,
-    ...document.querySelectorAll(".section-head, .about-grid, .crew-card"),
+    ...document.querySelectorAll(".section-head, .work-card"),
   ];
 
   if ("IntersectionObserver" in window) {
@@ -88,9 +79,9 @@
     observeEls.forEach((el) => el.classList.add("is-visible"));
   }
 
-  // stagger reveal for work items
-  document.querySelectorAll(".work-item").forEach((el, i) => {
-    el.style.transitionDelay = `${i * 110}ms`;
+  // stagger reveal for work cards
+  document.querySelectorAll(".work-card").forEach((el, i) => {
+    el.style.transitionDelay = `${i * 90}ms`;
   });
 
   // ── footer horizon: re-draw each time it enters viewport ────────

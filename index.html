@@ -6,26 +6,26 @@
 <meta name="theme-color" content="#ffffff" />
 <meta name="color-scheme" content="light" />
 
-<title>とも ― 個人開発者 / Apps on Google Play</title>
+<title>とも ― 制作物 / Works &middot; Apps on Google Play</title>
 <meta name="description"
-  content="個人開発者とものプロフィールと、制作中アプリの一覧。Web ゲーム、業務ツール、ホームページ制作。" />
+  content="個人開発者ともの制作物コレクション。Web ゲームと日々の道具を一覧で。漢道「刻」・ぴよふぃっと・ゆとり家計簿・おくすリマインダー。" />
 <link rel="canonical" href="https://tmk4men.github.io/tomo-site/" />
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="とも / Tomo" />
-<meta property="og:title" content="とも ― 個人開発者 / Apps on Google Play" />
+<meta property="og:title" content="とも ― 制作物 / Works &amp; Apps" />
 <meta property="og:description"
-  content="静かに、作り続ける。個人開発者とものささやかなアプリ棚。" />
+  content="個人開発でつくった、Web ゲームと日々の道具のコレクション。" />
 <meta property="og:url" content="https://tmk4men.github.io/tomo-site/" />
 <meta property="og:image" content="https://tmk4men.github.io/tomo-site/assets/og.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="個人開発者とも ― 静かに、作り続ける。" />
+<meta property="og:image:alt" content="とも ― 制作物コレクション。" />
 <meta property="og:locale" content="ja_JP" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="とも ― 個人開発者 / Apps on Google Play" />
-<meta name="twitter:description" content="静かに、作り続ける。個人開発者とものささやかなアプリ棚。" />
+<meta name="twitter:title" content="とも ― 制作物 / Works &amp; Apps" />
+<meta name="twitter:description" content="個人開発でつくった、Web ゲームと日々の道具のコレクション。" />
 <meta name="twitter:image" content="https://tmk4men.github.io/tomo-site/assets/og.jpg" />
 
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
@@ -37,18 +37,81 @@
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Yomogi&display=swap"
   rel="stylesheet" />
 
-<link rel="stylesheet" href="styles/main.css?v=15" />
+<!-- Mark JS as available before first paint so reveal-on-scroll elements
+     start hidden ONLY when JS can later reveal them (no-JS = always visible). -->
+<script>document.documentElement.classList.add("js");</script>
+<link rel="stylesheet" href="styles/main.css?v=16" />
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "とも",
-  "alternateName": "Tomo",
-  "url": "https://tmk4men.github.io/tomo-site/",
-  "image": "https://tmk4men.github.io/tomo-site/assets/avatar.webp",
-  "jobTitle": "個人アプリ開発者",
-  "description": "Web ゲーム・業務ツール・HP 制作を中心に活動する個人開発者。"
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://tmk4men.github.io/tomo-site/#tomo",
+      "name": "とも",
+      "alternateName": "Tomo",
+      "url": "https://tmk4men.github.io/tomo-site/",
+      "jobTitle": "個人アプリ開発者",
+      "description": "Web ゲームと日々の道具を中心につくる個人開発者。"
+    },
+    {
+      "@type": "ItemList",
+      "name": "とも ― 制作物",
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "numberOfItems": 4,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "漢道「刻」",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Web",
+            "url": "https://haisui-no-ken.vercel.app/",
+            "author": { "@id": "https://tmk4men.github.io/tomo-site/#tomo" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "ぴよふぃっと",
+            "applicationCategory": "GameApplication",
+            "operatingSystem": "Web",
+            "url": "https://tamagolife.vercel.app/",
+            "author": { "@id": "https://tmk4men.github.io/tomo-site/#tomo" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "ゆとり家計簿",
+            "applicationCategory": "FinanceApplication",
+            "operatingSystem": "Web",
+            "url": "https://tmk4men.github.io/yurutto-kakeibo/",
+            "author": { "@id": "https://tmk4men.github.io/tomo-site/#tomo" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "おくすリマインダー",
+            "applicationCategory": "HealthApplication",
+            "operatingSystem": "Web",
+            "url": "https://okusu-reminder.vercel.app/",
+            "author": { "@id": "https://tmk4men.github.io/tomo-site/#tomo" }
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 </head>
@@ -84,9 +147,8 @@
     <span class="brand-name">tomo</span>
   </a>
   <nav class="site-nav" aria-label="主要ナビゲーション">
-    <a href="#about">about</a>
-    <a href="#crew">crew</a>
     <a href="#works">works</a>
+    <a href="https://play.google.com/store/apps/dev?id=4981500069697226170" target="_blank" rel="noopener">play</a>
     <a href="https://www.threads.net/@ktomo_dev" target="_blank" rel="noopener">threads</a>
     <a href="privacy.html">privacy</a>
   </nav>
@@ -96,35 +158,38 @@
 
 <!-- ───────────── HERO ───────────── -->
 <section class="hero" aria-labelledby="hero-title">
+  <span class="hero-figure" aria-hidden="true">works</span>
   <div class="hero-inner">
-    <figure class="avatar" aria-hidden="false">
-      <img src="assets/avatar.webp" alt="とものプロフィール写真" width="400" height="400" loading="eager" />
-      <span class="avatar-ring" aria-hidden="true"></span>
-    </figure>
-
     <p class="eyebrow">
       <span class="eyebrow-rule"></span>
-      <span>TOMO &nbsp;&middot;&nbsp; Individual developer</span>
+      <span>Selected works &middot; 2025—2026</span>
       <span class="eyebrow-rule"></span>
     </p>
 
-    <h1 id="hero-title" class="hero-title" aria-label="静かに、作り続ける。">
-      <span class="l l1"><span class="c">静</span><span class="c">か</span><span class="c">に</span><span class="c">、</span></span><span class="l l2"><span class="c">作</span><span class="c">り</span><span class="c">続</span><span class="c">け</span><span class="c">る</span><span class="c">。</span></span>
+    <h1 id="hero-title" class="hero-title">
+      <span class="hero-title-line">暮らしのそばに、</span>
+      <span class="hero-title-line">小さな道具と</span>
+      <span class="hero-title-line">遊びを。</span>
     </h1>
 
     <p class="hero-lead">
-      個人開発者ともの、<br class="sp-only" />ささやかなアプリ棚です。<br />
-      Web ゲームから業務ツールまで、<br class="sp-only" />静かに、ひとつずつ。
+      個人開発でつくった、<br class="sp-only" />Web ゲームと日々の道具のコレクション。<br />
+      完成したものから、<br class="sp-only" />ひとつずつここへ並べています。
     </p>
 
     <ul class="hero-meta" aria-label="メタ情報">
-      <li>since 2025</li>
-      <li>based in Japan</li>
-      <li>Dec 16</li>
+      <li>4 works</li>
+      <li>Google Play</li>
+      <li>Web</li>
     </ul>
+
+    <a class="hero-cta" href="#works">
+      <span>制作物を見る</span>
+      <span class="hero-cta-arrow" aria-hidden="true">↓</span>
+    </a>
   </div>
 
-  <a class="hero-scroll" href="#about" aria-label="自己紹介へスクロール">
+  <a class="hero-scroll" href="#works" aria-label="制作物へスクロール">
     <span class="hero-scroll-label">scroll</span>
     <span class="hero-scroll-line" aria-hidden="true"></span>
   </a>
@@ -134,129 +199,119 @@
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
     <div class="marquee-group">
-      <span class="m-item">TOMO</span><span class="m-sep">—</span>
-      <span class="m-item">静かに、作り続ける</span><span class="m-sep">—</span>
-      <span class="m-item">Individual Developer</span><span class="m-sep">—</span>
-      <span class="m-item">Web Games ×&nbsp;2</span><span class="m-sep">—</span>
+      <span class="m-item">SELECTED WORKS</span><span class="m-sep">—</span>
+      <span class="m-item">漢道「刻」</span><span class="m-sep">—</span>
+      <span class="m-item">ぴよふぃっと</span><span class="m-sep">—</span>
       <span class="m-item">ゆとり家計簿</span><span class="m-sep">—</span>
-      <span class="m-item">企業向けツール</span><span class="m-sep">—</span>
-      <span class="m-item">HP 制作</span><span class="m-sep">—</span>
-      <span class="m-item">Based in Japan</span><span class="m-sep">—</span>
-      <span class="m-item">Dec&nbsp;16</span><span class="m-sep">—</span>
+      <span class="m-item">おくすリマインダー</span><span class="m-sep">—</span>
+      <span class="m-item">Web Games ×&nbsp;2</span><span class="m-sep">—</span>
+      <span class="m-item">Web Apps ×&nbsp;2</span><span class="m-sep">—</span>
+      <span class="m-item">Available on Google Play</span><span class="m-sep">—</span>
     </div>
     <div class="marquee-group" aria-hidden="true">
-      <span class="m-item">TOMO</span><span class="m-sep">—</span>
-      <span class="m-item">静かに、作り続ける</span><span class="m-sep">—</span>
-      <span class="m-item">Individual Developer</span><span class="m-sep">—</span>
-      <span class="m-item">Web Games ×&nbsp;2</span><span class="m-sep">—</span>
+      <span class="m-item">SELECTED WORKS</span><span class="m-sep">—</span>
+      <span class="m-item">漢道「刻」</span><span class="m-sep">—</span>
+      <span class="m-item">ぴよふぃっと</span><span class="m-sep">—</span>
       <span class="m-item">ゆとり家計簿</span><span class="m-sep">—</span>
-      <span class="m-item">企業向けツール</span><span class="m-sep">—</span>
-      <span class="m-item">HP 制作</span><span class="m-sep">—</span>
-      <span class="m-item">Based in Japan</span><span class="m-sep">—</span>
-      <span class="m-item">Dec&nbsp;16</span><span class="m-sep">—</span>
+      <span class="m-item">おくすリマインダー</span><span class="m-sep">—</span>
+      <span class="m-item">Web Games ×&nbsp;2</span><span class="m-sep">—</span>
+      <span class="m-item">Web Apps ×&nbsp;2</span><span class="m-sep">—</span>
+      <span class="m-item">Available on Google Play</span><span class="m-sep">—</span>
     </div>
   </div>
 </div>
 
-<!-- ───────────── ABOUT ───────────── -->
-<section class="about" id="about" aria-labelledby="about-title">
-  <div class="section-head section-head--truck">
-    <span class="section-num">01</span>
-    <h2 class="section-title" id="about-title">about</h2>
-    <span class="section-sub">自己紹介</span>
-    <svg class="about-truck" viewBox="0 0 46 18" aria-hidden="true">
-      <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M1 13 L1 5 L23 5 L23 13" />
-        <path d="M23 8 L30 8 L34 11 L34 13 L23 13" />
-        <path d="M23 13 L34 13" />
-        <path d="M5 5 L5 13 M9 5 L9 13 M13 5 L13 13 M17 5 L17 13" opacity="0.55" />
-      </g>
-      <circle class="truck-wheel" cx="7"  cy="14" r="2.2" fill="currentColor" />
-      <circle class="truck-wheel" cx="30" cy="14" r="2.2" fill="currentColor" />
-    </svg>
-  </div>
-
-  <div class="about-body">
-    <p class="about-lead">
-      はじめまして、<span class="nobr">とも</span>と申します。<br />
-      企業向けの小さな道具や<br class="sp-only" />ホームページを作りながら、<br />
-      いまは一般向けのアプリ開発にも、<br class="sp-only" />せっせと挑戦しています。
-    </p>
-    <p class="about-text">
-      派手さよりも、毎日のそばで、<br class="pc-only" />
-      何度でも開きたくなる手触りを大切に。<br />
-      作るものは Web ゲームだったり、<br class="pc-only" />
-      仕事を助ける小さなツールだったりと様々ですが、<br />
-      「使っていて心地よい」――そこだけは、<br class="sp-only" />いつも譲らずに。
-    </p>
-    <dl class="about-grid">
-      <div>
-        <dt>Handle</dt>
-        <dd>とも / Tomo</dd>
-      </div>
-      <div>
-        <dt>Birth</dt>
-        <dd>12 / 16</dd>
-      </div>
-      <div>
-        <dt>Role</dt>
-        <dd>個人開発・ツール／HP 制作</dd>
-      </div>
-      <div>
-        <dt>Now</dt>
-        <dd>Web Games ×&nbsp;2 / Web App ×&nbsp;1</dd>
-      </div>
-      <div>
-        <dt>Platform</dt>
-        <dd>Google Play / Web</dd>
-      </div>
-      <div>
-        <dt>Location</dt>
-        <dd>Japan</dd>
-      </div>
-    </dl>
-  </div>
-</section>
-
-<!-- ───────────── CREW ───────────── -->
-<section class="crew" id="crew" aria-labelledby="crew-title">
-  <div class="section-head">
-    <span class="section-num">02</span>
-    <h2 class="section-title" id="crew-title">crew</h2>
-    <span class="section-sub">アイデアマン</span>
-  </div>
-
-  <figure class="crew-card">
-    <div class="crew-photo">
-      <img src="assets/sugar.jpg" alt="シュガーマンの写真" width="320" height="320" loading="lazy" />
-      <span class="crew-photo-ring" aria-hidden="true"></span>
-      <span class="crew-photo-ring crew-photo-ring--dashed" aria-hidden="true"></span>
-    </div>
-    <figcaption class="crew-body">
-      <p class="crew-role"><span class="crew-role-rule"></span>Idea&nbsp;Man</p>
-      <h3 class="crew-name">
-        <span class="crew-name-jp" aria-label="シュガーマン"
-          ><span class="c">シ</span><span class="c">ュ</span><span class="c">ガ</span><span class="c">ー</span><span class="c">マ</span><span class="c">ン</span></span>
-        <span class="crew-name-en">Sugarman</span>
-      </h3>
-      <p class="crew-text">
-        裏側でひっそりとアイデアを<br class="sp-only" />練ってくれる相棒。<br />
-        「こんなのあったら面白くない？」――<br class="sp-only" />
-        その一言が、いつも作るきっかけ。
-      </p>
-    </figcaption>
-  </figure>
-</section>
-
 <!-- ───────────── WORKS ───────────── -->
 <section class="works" id="works" aria-labelledby="works-title">
   <div class="section-head">
-    <span class="section-num">03</span>
+    <span class="section-num">01</span>
     <h2 class="section-title" id="works-title">works</h2>
-    <span class="section-sub">制作中のもの</span>
+    <span class="section-sub">制作物</span>
   </div>
 
-  <a class="works-store" href="https://play.google.com/store/apps/dev?id=4981500069697226170" target="_blank" rel="noopener">
+  <p class="works-intro">
+    Web ゲームから日々の小さな道具まで。<br />
+    「使っていて心地よい」を、<br class="sp-only" />いつも真ん中に置いています。
+  </p>
+
+  <div class="works-gallery">
+
+    <article class="work-card work-card--feature">
+      <a class="work-card__link" href="https://haisui-no-ken.vercel.app/" target="_blank" rel="noopener" aria-label="漢道「刻」（Web Game）を新しいタブで開く">
+        <span class="work-card__cover">
+          <span class="work-card__glyph" aria-hidden="true">刻</span>
+          <span class="work-card__no">№ 01</span>
+          <span class="work-card__view">view ↗</span>
+        </span>
+        <span class="work-card__body">
+          <span class="work-card__tag">Web Game</span>
+          <span class="work-card__name">漢道「刻」</span>
+          <span class="work-card__desc">
+            カメラの前で筋トレすると、画面の中の漢が強くなる。
+            鍛えた分だけ主人公に刻まれていく、体感型 Web ゲーム。
+          </span>
+          <span class="work-card__cta"><span>Play</span><span class="arrow" aria-hidden="true">↗</span></span>
+        </span>
+      </a>
+    </article>
+
+    <article class="work-card">
+      <a class="work-card__link" href="https://tamagolife.vercel.app/?s=1776385224" target="_blank" rel="noopener" aria-label="ぴよふぃっと（Web Game）を新しいタブで開く">
+        <span class="work-card__cover">
+          <span class="work-card__glyph" aria-hidden="true">ぴ</span>
+          <span class="work-card__no">№ 02</span>
+          <span class="work-card__view">view ↗</span>
+        </span>
+        <span class="work-card__body">
+          <span class="work-card__tag">Web Game</span>
+          <span class="work-card__name">ぴよふぃっと</span>
+          <span class="work-card__desc">
+            画面の中で、小さな命を育てる。毎日すこしずつ、ぴよを気にかける軽やかな育成ゲーム。
+          </span>
+          <span class="work-card__cta"><span>Play</span><span class="arrow" aria-hidden="true">↗</span></span>
+        </span>
+      </a>
+    </article>
+
+    <article class="work-card">
+      <a class="work-card__link" href="https://tmk4men.github.io/yurutto-kakeibo/" target="_blank" rel="noopener" aria-label="ゆとり家計簿（Web App）を新しいタブで開く">
+        <span class="work-card__cover">
+          <span class="work-card__glyph" aria-hidden="true">円</span>
+          <span class="work-card__no">№ 03</span>
+          <span class="work-card__view">view ↗</span>
+        </span>
+        <span class="work-card__body">
+          <span class="work-card__tag">Web App</span>
+          <span class="work-card__name">ゆとり家計簿</span>
+          <span class="work-card__desc">
+            家計簿は細かくて続かない。そんな人のためのアプリ。「必要」「楽しみ」「ムダだったかも」の 3 つに分けるだけの、ゆるい記録。
+          </span>
+          <span class="work-card__cta"><span>Open</span><span class="arrow" aria-hidden="true">↗</span></span>
+        </span>
+      </a>
+    </article>
+
+    <article class="work-card">
+      <a class="work-card__link" href="https://okusu-reminder.vercel.app/" target="_blank" rel="noopener" aria-label="おくすリマインダー（Web App）を新しいタブで開く">
+        <span class="work-card__cover">
+          <span class="work-card__glyph" aria-hidden="true">薬</span>
+          <span class="work-card__no">№ 04</span>
+          <span class="work-card__view">view ↗</span>
+        </span>
+        <span class="work-card__body">
+          <span class="work-card__tag">Web App</span>
+          <span class="work-card__name">おくすリマインダー</span>
+          <span class="work-card__desc">
+            「あれ、薬飲んだっけ？」を簡単に無くしてくれる。可愛いペンギンの「のんちゃん」と一緒に管理しよう。
+          </span>
+          <span class="work-card__cta"><span>Open</span><span class="arrow" aria-hidden="true">↗</span></span>
+        </span>
+      </a>
+    </article>
+
+  </div>
+
+  <a class="works-store" href="https://play.google.com/store/apps/dev?id=4981500069697226170" target="_blank" rel="noopener" aria-label="Google Play のとものアプリ一覧を新しいタブで開く">
     <span class="works-store-tag">Google Play</span>
     <span class="works-store-label">公開中のアプリはこちら</span>
     <span class="works-store-cta">
@@ -265,81 +320,8 @@
     </span>
   </a>
 
-  <ul class="work-list" role="list">
-
-    <li class="work-item">
-      <a class="work-link" href="https://haisui-no-ken.vercel.app/" target="_blank" rel="noopener">
-        <span class="work-index">№ 01 &nbsp;/&nbsp; Web Game</span>
-        <span class="work-main">
-          <span class="work-name">漢道「刻」</span>
-          <span class="work-desc">
-            カメラの前で筋トレすると、<br class="sp-only" />画面の中の漢が強くなる。<br />
-            鍛えた分だけ主人公に刻まれていく、<br class="sp-only" />体感型 Web ゲーム。
-          </span>
-        </span>
-        <span class="work-cta">
-          <span class="work-cta-label">Play</span>
-          <span class="arrow" aria-hidden="true">↗</span>
-        </span>
-      </a>
-    </li>
-
-    <li class="work-item">
-      <a class="work-link" href="https://tamagolife.vercel.app/?s=1776385224" target="_blank" rel="noopener">
-        <span class="work-index">№ 02 &nbsp;/&nbsp; Web Game</span>
-        <span class="work-main">
-          <span class="work-name">ぴよふぃっと</span>
-          <span class="work-desc">
-            画面の中で、小さな命を育てる。<br />
-            毎日すこしずつ、ぴよを気にかける軽やかな育成ゲーム。
-          </span>
-        </span>
-        <span class="work-cta">
-          <span class="work-cta-label">Play</span>
-          <span class="arrow" aria-hidden="true">↗</span>
-        </span>
-      </a>
-    </li>
-
-    <li class="work-item">
-      <a class="work-link" href="https://tmk4men.github.io/yurutto-kakeibo/" target="_blank" rel="noopener">
-        <span class="work-index">№ 03 &nbsp;/&nbsp; Web App</span>
-        <span class="work-main">
-          <span class="work-name">ゆとり家計簿</span>
-          <span class="work-desc">
-            家計簿は細かくて続かない。<br class="sp-only" />そんな人のためのアプリ。<br />
-            「必要な出費」「楽しみの出費」<br class="sp-only" />「ムダだったかも」――<br class="pc-only" />
-            3 つに分けるだけの、ゆるい記録。
-          </span>
-        </span>
-        <span class="work-cta">
-          <span class="work-cta-label">Open</span>
-          <span class="arrow" aria-hidden="true">↗</span>
-        </span>
-      </a>
-    </li>
-
-    <li class="work-item">
-      <a class="work-link" href="https://okusu-reminder.vercel.app/" target="_blank" rel="noopener">
-        <span class="work-index">№ 04 &nbsp;/&nbsp; Web App</span>
-        <span class="work-main">
-          <span class="work-name">おくすリマインダー</span>
-          <span class="work-desc">
-            あれ、薬飲んだっけ？<br class="sp-only" />を簡単に無くしてくれる。<br />
-            可愛いペンギンの「のんちゃん」と<br class="sp-only" />一緒に管理しよう。
-          </span>
-        </span>
-        <span class="work-cta">
-          <span class="work-cta-label">Open</span>
-          <span class="arrow" aria-hidden="true">↗</span>
-        </span>
-      </a>
-    </li>
-
-  </ul>
-
   <p class="works-note">
-    ―&nbsp;新作は、完成と同時にここへ書き足していきます。
+    ―&nbsp;現在 4 作を公開中。<br class="sp-only" />新作は、完成と同時にここへ書き足していきます。
   </p>
 </section>
 
@@ -356,9 +338,8 @@
       <span>tomo</span>
     </div>
     <nav class="footer-nav" aria-label="フッターナビゲーション">
-      <a href="#about">about</a>
-      <a href="#crew">crew</a>
       <a href="#works">works</a>
+      <a href="https://play.google.com/store/apps/dev?id=4981500069697226170" target="_blank" rel="noopener">google play</a>
       <a href="https://www.threads.net/@ktomo_dev" target="_blank" rel="noopener">threads &nbsp;@ktomo_dev</a>
       <a href="privacy.html">privacy policy</a>
     </nav>
@@ -369,6 +350,6 @@
   </div>
 </footer>
 
-<script src="scripts/main.js?v=14" defer></script>
+<script src="scripts/main.js?v=15" defer></script>
 </body>
 </html>
